@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Home Template</h1>
+
+<div>
+    <ul>
+        {% if user.is_authenticated %}
+            <li>Hello, <a href="{% url 'account' %}">{{ user.username }}</a>!</li>
+        {% else %}
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+    </ul>
+</div>
+
+{% endblock content %}
+
